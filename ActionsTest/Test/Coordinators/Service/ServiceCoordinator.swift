@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol ServiceCoordinatorProtocol: CoordinatorProtocol, ActionHandlerProtocol where ActionType == ServiceAction {}
+protocol ServiceCoordinatorProtocol: CoordinatorProtocol, ActionHandlerProtocol where ActionType == CommonAction.ServiceAction {}
 
 class ServiceCoordinator: BaseCoordinator, ServiceCoordinatorProtocol {
-    typealias ActionType = ServiceAction
+    typealias ActionType = CommonAction.ServiceAction
 
-    func handleAction(_ action: ServiceAction, completion: ((Bool) -> Void)?) {
+    func handleAction(_ action: CommonAction.ServiceAction, completion: ActionHandlerCompletion?) {
         switch action {
         case .showError:
             print("ERROR")

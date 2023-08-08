@@ -10,7 +10,7 @@ import Foundation
 protocol ActionHandlerProtocol {
     associatedtype ActionType: ActionProtocol
     
-    func handleAction(_ action: ActionType, completion: ((Bool) -> Void)?)
+    func handleAction(_ action: ActionType, completion: ActionHandlerCompletion?)
 }
 
 extension ActionHandlerProtocol {

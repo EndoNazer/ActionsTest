@@ -11,6 +11,6 @@ protocol ProductCoordinatorProtocol: CoordinatorProtocol, ActionSenderProtocol {
 
 class ProductCoordinator: BaseCoordinator, ProductCoordinatorProtocol {
     override func start() {
-        actionSenderSubject?.send(ServiceAction.showNoConnection)
+        actionSenderSubject?.send(CommonAction.MainAction.finish(coordinator: self))
     }
 }

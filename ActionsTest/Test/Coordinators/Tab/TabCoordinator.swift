@@ -8,12 +8,12 @@
 import Combine
 import Foundation
 
-protocol TabCoordinatorProtocol: CoordinatorProtocol, ActionHandlerProtocol where ActionType == TabAction {}
+protocol TabCoordinatorProtocol: CoordinatorProtocol, ActionHandlerProtocol where ActionType == CommonAction.TabAction {}
 
 class TabCoordinator: BaseCoordinator, TabCoordinatorProtocol {
-    typealias ActionType = TabAction
+    typealias ActionType = CommonAction.TabAction
     
-    func handleAction(_ action: ActionType, completion: ((Bool) -> Void)?) {
+    func handleAction(_ action: ActionType, completion: ActionHandlerCompletion?) {
         switch action {
         case .switchTab:
             print("SWITCH TAB")

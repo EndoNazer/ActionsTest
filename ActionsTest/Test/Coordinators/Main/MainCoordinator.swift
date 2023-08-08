@@ -8,12 +8,12 @@
 import Combine
 import Foundation
 
-protocol MainCoordinatorProtocol: CoordinatorProtocol, ActionHandlerProtocol where ActionType == ServiceAction {}
+protocol MainCoordinatorProtocol: CoordinatorProtocol, ActionHandlerProtocol where ActionType == CommonAction.ServiceAction {}
 
 class MainCoordinator: BaseCoordinator, MainCoordinatorProtocol {
-    typealias ActionType = ServiceAction
+    typealias ActionType = CommonAction.ServiceAction
     
-    func handleAction(_ action: ActionType, completion: ((Bool) -> Void)?) {
+    func handleAction(_ action: ActionType, completion: ActionHandlerCompletion?) {
         switch action {
         case .showError:
             print("SHOW ERROR IN MAIN")

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A521CEDD2A812AFD003399A0 /* AnyActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521CEDC2A812AFD003399A0 /* AnyActionHandler.swift */; };
 		A521CEE02A813018003399A0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521CEDF2A813018003399A0 /* MainCoordinator.swift */; };
+		A521CEE22A820DA1003399A0 /* ActionHandlerCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521CEE12A820DA1003399A0 /* ActionHandlerCompletion.swift */; };
+		A521CEE42A8210E8003399A0 /* CommonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521CEE32A8210E8003399A0 /* CommonAction.swift */; };
+		A521CEE72A8211D6003399A0 /* MainActionHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521CEE62A8211D6003399A0 /* MainActionHandlerProtocol.swift */; };
 		A5EC82502A80EF660076D702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC824F2A80EF660076D702 /* AppDelegate.swift */; };
 		A5EC82522A80EF660076D702 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC82512A80EF660076D702 /* SceneDelegate.swift */; };
 		A5EC82542A80EF660076D702 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC82532A80EF660076D702 /* ViewController.swift */; };
@@ -18,7 +21,7 @@
 		A5EC82652A80EF8C0076D702 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC82642A80EF8C0076D702 /* AppCoordinator.swift */; };
 		A5EC82672A80EF9F0076D702 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC82662A80EF9F0076D702 /* TabCoordinator.swift */; };
 		A5EC82692A80EFAF0076D702 /* ProductCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC82682A80EFAF0076D702 /* ProductCoordinator.swift */; };
-		A5EC826C2A80EFD20076D702 /* MainContainerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC826B2A80EFD20076D702 /* MainContainerAction.swift */; };
+		A5EC826C2A80EFD20076D702 /* MainAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC826B2A80EFD20076D702 /* MainAction.swift */; };
 		A5EC826E2A80EFEF0076D702 /* TabAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC826D2A80EFEF0076D702 /* TabAction.swift */; };
 		A5EC82702A80F0CD0076D702 /* ServiceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC826F2A80F0CD0076D702 /* ServiceAction.swift */; };
 		A5EC82732A80F1440076D702 /* ActionHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC82722A80F1440076D702 /* ActionHandlerProtocol.swift */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		A521CEDC2A812AFD003399A0 /* AnyActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyActionHandler.swift; sourceTree = "<group>"; };
 		A521CEDF2A813018003399A0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		A521CEE12A820DA1003399A0 /* ActionHandlerCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandlerCompletion.swift; sourceTree = "<group>"; };
+		A521CEE32A8210E8003399A0 /* CommonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAction.swift; sourceTree = "<group>"; };
+		A521CEE62A8211D6003399A0 /* MainActionHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActionHandlerProtocol.swift; sourceTree = "<group>"; };
 		A5EC824C2A80EF660076D702 /* ActionsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActionsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EC824F2A80EF660076D702 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5EC82512A80EF660076D702 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +50,7 @@
 		A5EC82642A80EF8C0076D702 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A5EC82662A80EF9F0076D702 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		A5EC82682A80EFAF0076D702 /* ProductCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCoordinator.swift; sourceTree = "<group>"; };
-		A5EC826B2A80EFD20076D702 /* MainContainerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerAction.swift; sourceTree = "<group>"; };
+		A5EC826B2A80EFD20076D702 /* MainAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAction.swift; sourceTree = "<group>"; };
 		A5EC826D2A80EFEF0076D702 /* TabAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAction.swift; sourceTree = "<group>"; };
 		A5EC826F2A80F0CD0076D702 /* ServiceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAction.swift; sourceTree = "<group>"; };
 		A5EC82722A80F1440076D702 /* ActionHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandlerProtocol.swift; sourceTree = "<group>"; };
@@ -73,6 +79,17 @@
 				A521CEDF2A813018003399A0 /* MainCoordinator.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		A521CEE52A821123003399A0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A5EC826B2A80EFD20076D702 /* MainAction.swift */,
+				A5EC826D2A80EFEF0076D702 /* TabAction.swift */,
+				A5EC826F2A80F0CD0076D702 /* ServiceAction.swift */,
+				A521CEE32A8210E8003399A0 /* CommonAction.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		A5EC82432A80EF660076D702 = {
@@ -118,9 +135,7 @@
 		A5EC826A2A80EFC30076D702 /* Action */ = {
 			isa = PBXGroup;
 			children = (
-				A5EC826B2A80EFD20076D702 /* MainContainerAction.swift */,
-				A5EC826D2A80EFEF0076D702 /* TabAction.swift */,
-				A5EC826F2A80F0CD0076D702 /* ServiceAction.swift */,
+				A521CEE52A821123003399A0 /* Common */,
 				A5EC82812A80F60E0076D702 /* Action.swift */,
 			);
 			path = Action;
@@ -132,6 +147,8 @@
 				A5EC826A2A80EFC30076D702 /* Action */,
 				A5EC82722A80F1440076D702 /* ActionHandlerProtocol.swift */,
 				A521CEDC2A812AFD003399A0 /* AnyActionHandler.swift */,
+				A521CEE12A820DA1003399A0 /* ActionHandlerCompletion.swift */,
+				A521CEE62A8211D6003399A0 /* MainActionHandlerProtocol.swift */,
 			);
 			path = ActionHandler;
 			sourceTree = "<group>";
@@ -285,7 +302,10 @@
 				A5EC827D2A80F4870076D702 /* TabOutputRoutes.swift in Sources */,
 				A5EC82782A80F34A0076D702 /* BaseCoordinator.swift in Sources */,
 				A5EC827F2A80F58D0076D702 /* ActionSenderProtocol.swift in Sources */,
-				A5EC826C2A80EFD20076D702 /* MainContainerAction.swift in Sources */,
+				A521CEE72A8211D6003399A0 /* MainActionHandlerProtocol.swift in Sources */,
+				A521CEE22A820DA1003399A0 /* ActionHandlerCompletion.swift in Sources */,
+				A5EC826C2A80EFD20076D702 /* MainAction.swift in Sources */,
+				A521CEE42A8210E8003399A0 /* CommonAction.swift in Sources */,
 				A5EC82502A80EF660076D702 /* AppDelegate.swift in Sources */,
 				A5EC82522A80EF660076D702 /* SceneDelegate.swift in Sources */,
 				A5EC826E2A80EFEF0076D702 /* TabAction.swift in Sources */,

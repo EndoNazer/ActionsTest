@@ -10,24 +10,13 @@ import Foundation
 
 protocol AppCoordinatorProtocol: CoordinatorProtocol, ActionHandlerProtocol {}
 
-class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
-    typealias ActionType = MainContainerAction
+class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol, MainActionHandlerProtocol {
+    typealias ActionType = CommonAction.MainAction
 
-    func handleAction(_ action: MainContainerAction, completion: ((Bool) -> Void)? = nil) {
-        switch action {
-        case .resetRoot:
-            print("RESET ROOT")
-            completion?(true)
-        case .finish:
-            print("FINISH")
-            completion?(true)
-        }
-    }
-
-    var childCoorinators: [CoordinatorProtocol] = []
+    let actionQueue = DispatchQueue(label: "ActionHandlers queue", qos: .userInteractive)
     var actionHandlers: [any ActionHandlerProtocol] = []
 
-    private let actionQueue = DispatchQueue(label: "ActionHandlers queue", qos: .userInteractive)
+    private var childCoorinators: [CoordinatorProtocol] = []
     private var actionSubscription: AnyCancellable?
 
     override init() {
@@ -47,64 +36,60 @@ class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
 
         // Tab
         
+        addTab()
+    }
+}
+
+// MARK: ActionHandlerProtocol
+
+extension AppCoordinator {
+    func handleAction(_ action: CommonAction.MainAction, completion: ActionHandlerCompletion? = nil) {
+        switch action {
+        case .resetRoot:
+            print("RESET ROOT")
+            completion?(true)
+        case let .finish(coordinator):
+            childCoorinators.removeAll(where: { $0 === coordinator })
+            print("FINISH")
+            completion?(true)
+        }
+    }
+}
+
+// MARK: Screens
+
+extension AppCoordinator {
+    private func addTab() {
         let tabCoordinator: any TabCoordinatorProtocol = TabCoordinator(outputRoutes: self)
+        childCoorinators.append(tabCoordinator)
         actionHandlers.append(AnyActionHandler(tabCoordinator))
         
         tabCoordinator.start()
-        childCoorinators.append(tabCoordinator)
     }
 
     private func addService() {
         let serviceCoordinator: any ServiceCoordinatorProtocol = ServiceCoordinator()
+        childCoorinators.append(serviceCoordinator)
         actionHandlers.append(AnyActionHandler(serviceCoordinator))
         
         serviceCoordinator.start()
-        childCoorinators.append(serviceCoordinator)
     }
     
     private func addMain() {
         let mainCoordinator: any MainCoordinatorProtocol = MainCoordinator()
+        childCoorinators.append(mainCoordinator)
         actionHandlers.append(AnyActionHandler(mainCoordinator))
         
         mainCoordinator.start()
-        childCoorinators.append(mainCoordinator)
-    }
-
-    private func handleUndefinedAction(_ action: ActionProtocol) {
-        switch action {
-        case let action as MainContainerAction:
-            handleAction(action)
-        case let action as TabAction:
-            handleSpecificAction(action: action)
-        case let action as ServiceAction:
-            handleSpecificAction(action: action)
-        default:
-            break
-        }
-    }
-
-    private func handleSpecificAction<T: ActionProtocol>(action: T) {
-        let handlers = actionHandlers
-            .compactMap { $0 as? AnyActionHandler<T>}
-            .reversed()
-
-        for handler in handlers {
-            var isHandled = false
-            actionQueue.sync {
-                handler.handleAction(action) { isHandled = $0 }
-            }
-            if isHandled {
-                break
-            }
-        }
     }
 }
 
 extension AppCoordinator: TabOutputRoutes {
     func showProduct() {
         let productCoordinator: ProductCoordinatorProtocol = ProductCoordinator()
+        childCoorinators.append(productCoordinator)
+
         productCoordinator.actionSenderSubject = actionSenderSubject
         productCoordinator.start()
-        childCoorinators.append(productCoordinator)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 class AnyActionHandler<Action: ActionProtocol>: ActionHandlerProtocol {
     typealias ActionType = Action
 
-    private let _handler: (Action, ((Bool) -> Void)?) -> Void
+    private let _handler: (Action, ActionHandlerCompletion?) -> Void
     
     init<T: ActionHandlerProtocol>(_ handler: T) where T.ActionType == ActionType {
         _handler = {
@@ -18,7 +18,7 @@ class AnyActionHandler<Action: ActionProtocol>: ActionHandlerProtocol {
         }
     }
 
-    func handleAction(_ action: Action, completion: ((Bool) -> Void)?) {
+    func handleAction(_ action: Action, completion: ActionHandlerCompletion?) {
         _handler(action, completion)
     }
 }
